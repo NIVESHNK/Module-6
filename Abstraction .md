@@ -28,9 +28,10 @@ To create an **abstract class** named `Shape` with an **abstract method** `calcu
 
 ---
 
-## 💻 Program:
-```
+## 💻 Program
+~~~
 from abc import ABC, abstractmethod
+import math
 
 
 class Shape(ABC):
@@ -40,32 +41,31 @@ class Shape(ABC):
 
 
 class Rectangle(Shape):
-    def __init__(self):
-        self.length = 10
-        self.breadth = 5
+    def __init__(self, length=5, breadth=4):
+        self.length = length
+        self.breadth = breadth
 
     def calculate_area(self):
-        print("Area of Rectangle =", self.length * self.breadth)
+        return self.length * self.breadth
 
 
 class Circle(Shape):
-    def __init__(self):
-        self.radius = 7
+    def __init__(self, radius=3):
+        self.radius = radius
 
     def calculate_area(self):
-        print("Area of Circle =", 3.14 * self.radius * self.radius)
+        return math.pi * self.radius * self.radius
 
 
-r = Rectangle()
-c = Circle()
-
-r.calculate_area()
-c.calculate_area()
-```
-
-## Output:
-<img width="478" height="167" alt="image" src="https://github.com/user-attachments/assets/4b7cab6a-cf79-46fa-831a-bebb3ebfd884" />
+rect = Rectangle()
+circ = Circle()
 
 
-## Result:
-Thus, the Python program to implement an abstract class Shape and calculate the areas of Rectangle and Circle was executed successfully.
+print("Area of Rectangle:", rect.calculate_area())
+print("Area of Circle:", round(circ.calculate_area(), 2))
+~~~
+## Output
+![447087460-b1ea92ab-1951-4ac0-b0f0-0b03b8041f9e](https://github.com/user-attachments/assets/474f7531-d6a0-4698-9d4c-dabe26e71c6b)
+
+## Result
+The area of the rectangle and circle was correctly calculated and displayed.
